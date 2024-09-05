@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quicksave</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        background-color: white;
+    }
+
+    body {
+        background-color:#0e0b36;
+        position: absolute;
+    }
+
+    nav {
+        height: 100px;
+        width: 1350px;
+        justify-content: space-around;
+        background-color:#0e0b36;
+        gap: 10px;
+
+
+        display: flex;
+        list-style: none;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+
+    }
+
+
+
+    $menu_WIDTH: 150px;
+
+    .menu {
+        display: block;
+        position: relative;
+        cursor: pointer;
+
+    }
+
+    .menu-title {
+        display: block;
+        width: $menu_WIDTH;
+        height: 40px;
+        padding: 12px 0 0;
+        background: #9dc852;
+        text-align: center;
+        color: #ffffff;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.3s background-color;
+    }
+
+    .menu-title:before {
+        content: "";
+        display: block;
+        height: 0;
+
+        border-top: 5px solid a {
+            text-decoration: none;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        $menu_WIDTH: 150px;
+
+        .menu {
+            display: block;
+            position: relative;
+            cursor: pointer;
+
+        }
+
+        .menu-title {
+            display: block;
+            width: $menu_WIDTH;
+            height: 40px;
+            padding: 12px 0 0;
+
+            text-align: center;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+
+        }
+
+        .menu-title:before {
+            content: "";
+            display: block;
+            height: 0;
+            border-top: 5px solid rgb(114, 203, 230);
+            border-left: ($menu_WIDTH / 2) solid transparent;
+            border-right: ($menu_WIDTH / 2) solid transparent;
+            border-bottom: 0 solid #dddddd;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 101;
+            transition:
+                0.2s 0.2s border-top ease-out,
+                0.3s border-top-color;
+        }
+
+        .menu-title:hover {
+            background: #5789d3;
+        }
+
+        .menu-title:hover:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu:hover>.menu-title:before {
+            border-top-width: 0;
+            transition:
+                0.2s border-top-width ease-in,
+                0.3s border-top-color;
+        }
+
+        .menu-title:after {
+            content: "";
+            display: block;
+            height: 0;
+            border-left: ($menu_WIDTH / 2) solid transparent;
+            border-right: ($menu_WIDTH / 2) solid transparent;
+            border-bottom: 0 solid #ebebeb;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 101;
+            transition: 0.2s border-bottom ease-in;
+        }
+
+        .menu:hover>.menu-title:after {
+            border-bottom-width: 5px;
+            transition: 0.2s 0.2s border-bottom-width ease-out;
+        }
+
+        .menu-title_2nd {
+            background: #5789d3;
+        }
+
+        .menu-title_2nd:hover {
+            background: #5789d3;
+        }
+
+        .menu-title_2nd:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu-title_2nd:hover:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu-title_3rd {
+            background: #5789d3;
+        }
+
+        .menu-title_3rd:hover {
+            background: #5789d3;
+        }
+
+        .menu-title_3rd:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu-title_3rd:hover:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu-title_4th {
+            background: #5789d3;
+        }
+
+        .menu-title_4th:hover {
+            background: #5789d3;
+        }
+
+        .menu-title_4th:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu-title_4th:hover:before {
+            border-top-color: #5789d3;
+        }
+
+        .menu-dropdown {
+            min-width: 100%;
+            padding: 15px 0;
+            position: absolute;
+            background: #ebebeb;
+            z-index: 100;
+            transition:
+                0.5s padding,
+                0.5s background;
+        }
+
+        .menu-dropdown:after {
+            content: "";
+            display: block;
+            height: 0;
+            border-top: 5px solid #ebebeb;
+            border-left: ($menu_WIDTH / 2) solid transparent;
+            border-right: ($menu_WIDTH / 2) solid transparent;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 101;
+            transition: 0.5s border-top;
+        }
+
+        .menu:not(:hover)>.menu-dropdown {
+            padding: 4px 0;
+            background: #dddddd;
+            z-index: 99;
+        }
+
+        .menu:not(:hover)>.menu-dropdown:after {
+            border-top-color: #dddddd;
+        }
+
+        .menu:not(:hover)>.menu-title:after {
+            border-bottom-color: #dddddd;
+        }
+
+        .menu-dropdown>* {
+            overflow: hidden;
+            height: 30px;
+            padding: 5px 10px;
+            background: rgba(0, 0, 0, 0);
+            white-space: nowrap;
+            transition:
+                0.5s height cubic-bezier(.73, .32, .34, 1.5),
+                0.5s padding cubic-bezier(.73, .32, .34, 1.5),
+                0.5s margin cubic-bezier(.73, .32, .34, 1.5),
+                0.5s 0.2s color,
+                0.2s background-color;
+        }
+
+        .menu-dropdown>*:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .menu:not(:hover)>.menu-dropdown>* {
+            visibility: hidden;
+            height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: 0;
+            color: rgba(25, 25, 25, 0);
+            transition:
+                0.5s 0.1s height,
+                0.5s 0.1s padding,
+                0.5s 0.1s margin,
+                0.3s color,
+                0.6s visibility;
+            z-index: 99;
+        }
+
+        .hList {
+            //overflow: hidden;
+        }
+
+        .hList>* {
+            float: left;
+        }
+
+        .hList>+ {
+            margin-left: 0;
+        }
+
+        ;
+        border-left: ($menu_WIDTH / 2) solid transparent;
+        border-right: ($menu_WIDTH / 2) solid transparent;
+        border-bottom: 0 solid #acdfd8;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 101;
+        transition: 0.2s 0.2s border-top ease-out,
+        0.3s border-top-color;
+    }
+
+    .menu-title:hover {
+        background: #acdfd8;
+    }
+
+    .menu-title:hover:before {
+        border-top-color: #5789d3;
+    }
+
+    .menu:hover>.menu-title:before {
+        border-top-width: 0;
+        transition:
+            0.2s border-top-width ease-in,
+            0.3s border-top-color;
+    }
+
+    .menu-title:after {
+        content: "";
+        display: block;
+        height: 0;
+        border-left: ($menu_WIDTH / 2) solid transparent;
+        border-right: ($menu_WIDTH / 2) solid transparent;
+        border-bottom: 0 solid #ebebeb;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 101;
+        transition: 0.2s border-bottom ease-in;
+    }
+
+    .menu:hover>.menu-title:after {
+        border-bottom-width: 5px;
+        transition: 0.2s 0.2s border-bottom-width ease-out;
+    }
+
+    .menu-title_2nd {
+        background: #4e96b3;
+    }
+
+    .menu-title_2nd:hover {
+        background: #3e86a3;
+    }
+
+    .menu-title_2nd:before {
+        border-top-color: #4e96b3;
+    }
+
+    .menu-title_2nd:hover:before {
+        border-top-color: #3e86a3;
+    }
+
+    .menu-title_3rd {
+        background: #5789d3;
+    }
+
+    .menu-title_3rd:hover {
+        background: #5789d3;
+    }
+
+    .menu-title_3rd:before {
+        border-top-color: #5789d3;
+    }
+
+    .menu-title_3rd:hover:before {
+        border-top-color: #5789d3;
+    }
+
+    .menu-title_4th {
+        background: #5789d3;
+    }
+
+    .menu-title_4th:hover {
+        background: #5789d3;
+    }
+
+    .menu-title_4th:before {
+        border-top-color: #5789d3;
+    }
+
+    .menu-title_4th:hover:before {
+        border-top-color: #5789d3;
+    }
+
+    .menu-dropdown {
+        min-width: 100%;
+        padding: 15px 0;
+        position: absolute;
+        background: #ebebeb;
+        z-index: 100;
+        transition:
+            0.5s padding,
+            0.5s background;
+    }
+
+    .menu-dropdown:after {
+        content: "";
+        display: block;
+        height: 0;
+        border-top: 5px solid #ebebeb;
+        border-left: ($menu_WIDTH / 2) solid transparent;
+        border-right: ($menu_WIDTH / 2) solid transparent;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 101;
+        transition: 0.5s border-top;
+    }
+
+    .menu:not(:hover)>.menu-dropdown {
+        padding: 4px 0;
+        background: #dddddd;
+        z-index: 99;
+    }
+
+    .menu:not(:hover)>.menu-dropdown:after {
+        border-top-color: #dddddd;
+    }
+
+    .menu:not(:hover)>.menu-title:after {
+        border-bottom-color: #dddddd;
+    }
+
+    .menu-dropdown>* {
+        overflow: hidden;
+        height: 30px;
+        padding: 5px 10px;
+        background: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        transition:
+            0.5s height cubic-bezier(.73, .32, .34, 1.5),
+            0.5s padding cubic-bezier(.73, .32, .34, 1.5),
+            0.5s margin cubic-bezier(.73, .32, .34, 1.5),
+            0.5s 0.2s color,
+            0.2s background-color;
+    }
+
+    .menu-dropdown>*:hover {
+        background: #5789d3;
+    }
+
+    .menu:not(:hover)>.menu-dropdown>* {
+        visibility: hidden;
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0;
+        color: #5789d3;
+        transition:
+            0.5s 0.1s height,
+            0.5s 0.1s padding,
+            0.5s 0.1s margin,
+            0.3s color,
+            0.6s visibility;
+        z-index: 99;
+    }
+
+    .hList {
+        overflow: hidden;
+    }
+
+    .hList>* {
+        float: left;
+    }
+
+    .hList>+ {
+        margin-left: 0;
+    }
+
+    .card1 {
+       
+        height: 350px;
+        width: 100%;
+        margin: 10px;
+        margin-left: 30px;
+        padding: 10px;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f3c6c6;
+    }
+
+    .box:hover {
+        animation-play-state: paused;
+
+    }
+
+    .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        animation: animate 30s alternate-reverse infinite;
+        margin-left: 900px;
+        position: absolute;
+        margin-top: 50px;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        100% {
+            transform: perspective(1000px) rotateY(360deg);
+        }
+    }
+
+    .box span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(240px);
+    }
+
+    .box span::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        box-shadow: inset 0 0 15px rgb(224, 209, 209);
+    }
+
+    .box span img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card1 {
+        display: grid;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+    }.card1 h1{
+        background-color:white ;
+    }
+
+    .kno {
+        padding: 13px;
+        font-size: 25px;
+    }
+
+    .dis {
+        padding: 13px;
+        font-size: 25px;
+    }
+
+    .rpt {
+        padding: 13px;
+        font-size: 25px;
+    }
+
+    .card2 {
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin-top: 50px;
+        border: 1px solid rgb(5, 132, 236);
+        background-color: rgba(31, 0, 204, 0.918);
+        display: inline-flexbox;
+       
+    }
+
+    .report-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 15px 30px;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        margin-left: 220px;
+    }
+
+    .report-form {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+    }
+
+    .report-form h2 {
+        margin-top: 0;
+    }
+
+    .report-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .report-form input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .report-form button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .report-btn:hover+.report-form {
+        display: block;
+    }
+
+    div .desc {
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: cursive;
+        background-color:rgba(14, 78, 14, 0.342) ;
+    }
+
+    div>h1 {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight: 600;
+
+        background-color: rgba(14, 78, 14, 0.342);
+    }
+
+    .sub {
+        background-color: #007bff;
+        color: wheat;
+        font-size: larger;
+        font-weight: 400;
+        padding: 5px;
+    }
+    /* General body styles for better visualization */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the circular buttons */
+.stats-container {
+    grid-template-columns: repeat(1,150px);
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+    height: 600px;
+    width: 100%;
+}
+
+/* Individual stat item styling */
+.stat-item {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    
+}
+
+/* Circular button styling */
+.stat-button {
+    background-color: rgb(48, 13, 94);
+    border: none;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(5, 1, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: #28a745;
+    font-size: 40px;
+}
+
+/* Styling for the numeric range inside buttons */
+
+
+/* Optional: Add a hover effect to buttons */
+.stat-button:hover {
+    background-color: orange;
+    transition: background-color 0.3s ease;
+}
+.statname{
+    font-size: 50px;
+}
+/* Footer Styling */
+.site-footer {
+    background-color: #9e98f5;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    margin: 10px;
+    background-color: #4e96b3;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+
+
+
+    /*.rpt{
+width: 100%;
+height: 100%;
+color: #fff;
+border-radius: 30px;
+letter-spacing: 1px;
+font-weight: 400;
+text-decoration: none;
+transition: 0.5s;
+overflow: hidden;
+backdrop-filter: blur(15px);
+    } */
+</style>
+
+<body>
+    <header>
+        <nav>
+
+            <div>
+                <li> <span>
+                    <svg width="340" height="90" viewBox="0 0 380 105" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M97.888 66C97.3973 66 96.9707 65.8187 96.608 65.456L90.208 59.056C89.8667 58.7147 89.696 58.288 89.696 57.776V31.536C89.696 31.0453 89.8667 30.6187 90.208 30.256L96.608 23.856C96.9707 23.5147 97.3973 23.344 97.888 23.344H110.976C111.488 23.344 111.915 23.5147 112.256 23.856L118.656 30.256C119.019 30.6187 119.2 31.0453 119.2 31.536V57.776C119.2 58.288 119.019 58.7147 118.656 59.056L112.256 65.456C111.915 65.8187 111.488 66 110.976 66H97.888ZM100.832 71.344C100.299 71.344 100.032 71.0773 100.032 70.544V66H108.672L110.048 70.096C110.155 70.416 110.101 70.704 109.888 70.96C109.696 71.216 109.451 71.344 109.152 71.344H100.832ZM104.032 53.776H104.832C105.728 53.776 106.176 53.168 106.176 51.952V37.36C106.176 36.1653 105.728 35.568 104.832 35.568H104.032C103.136 35.568 102.688 36.1653 102.688 37.36V51.952C102.688 53.168 103.136 53.776 104.032 53.776ZM130.763 66C130.272 66 129.846 65.8187 129.483 65.456L123.083 59.056C122.742 58.7147 122.571 58.288 122.571 57.776V24.144C122.571 23.6107 122.838 23.344 123.371 23.344H134.699C135.232 23.344 135.499 23.6107 135.499 24.144V52.528C135.499 53.36 135.915 53.776 136.747 53.776H138.635V24.144C138.635 23.6107 138.902 23.344 139.435 23.344H150.795C151.328 23.344 151.595 23.6107 151.595 24.144V65.2C151.595 65.7333 151.328 66 150.795 66H130.763ZM155.746 66C155.213 66 154.946 65.7333 154.946 65.2V24.144C154.946 23.6107 155.213 23.344 155.746 23.344H167.074C167.607 23.344 167.874 23.6107 167.874 24.144V65.2C167.874 65.7333 167.607 66 167.074 66H155.746ZM182.747 66C182.192 66 181.765 65.8613 181.467 65.584L177.691 61.84L171.739 55.696C171.504 55.4613 171.355 55.28 171.291 55.152C171.248 55.024 171.227 54.7893 171.227 54.448V34.896C171.227 34.5333 171.248 34.2987 171.291 34.192C171.355 34.064 171.504 33.8827 171.739 33.648L176.539 28.56L181.467 23.76C181.659 23.568 181.84 23.4507 182.011 23.408C182.203 23.3653 182.448 23.344 182.747 23.344H191.547C192.08 23.344 192.347 23.6107 192.347 24.144V32.464C192.347 32.656 192.325 32.8373 192.283 33.008C192.261 33.1573 192.165 33.3173 191.995 33.488L187.515 37.648L184.091 41.296V48.528L187.899 52.528L191.995 56.304C192.165 56.4533 192.261 56.6133 192.283 56.784C192.325 56.9333 192.347 57.104 192.347 57.296V65.2C192.347 65.7333 192.08 66 191.547 66H182.747ZM196.371 66C195.838 66 195.571 65.7333 195.571 65.2V24.144C195.571 23.6107 195.838 23.344 196.371 23.344H207.699C208.232 23.344 208.499 23.6107 208.499 24.144V37.264H209.459L211.539 29.264L212.851 23.76C212.894 23.568 213.022 23.4507 213.235 23.408C213.448 23.3653 213.662 23.344 213.875 23.344H224.467C225 23.344 225.267 23.6107 225.267 24.144V31.824C225.267 32.016 225.224 32.1973 225.139 32.368C225.054 32.5173 224.968 32.688 224.883 32.88L220.339 43.12L219.539 44.624L220.371 46.192L225.683 56.912C225.79 57.0827 225.854 57.264 225.875 57.456C225.918 57.6267 225.939 57.8507 225.939 58.128V65.2C225.939 65.7333 225.672 66 225.139 66H214.387C214.216 66 214.024 65.968 213.811 65.904C213.619 65.84 213.491 65.712 213.427 65.52L211.411 59.024L209.555 53.392H208.499V65.2C208.499 65.7333 208.232 66 207.699 66H196.371ZM229.806 66C229.272 66 229.006 65.7333 229.006 65.2V56.592C229.006 56.336 229.016 56.1333 229.038 55.984C229.08 55.8133 229.208 55.664 229.422 55.536L236.43 51.632V49.456L229.518 45.744C229.176 45.5307 229.006 45.2107 229.006 44.784V30.736C229.006 30.3947 229.027 30.1493 229.07 30C229.112 29.8293 229.262 29.648 229.518 29.456L237.966 23.76C238.136 23.632 238.318 23.536 238.51 23.472C238.702 23.3867 238.947 23.344 239.246 23.344H250.158C250.691 23.344 250.958 23.6107 250.958 24.144V33.072C250.958 33.5413 250.798 33.8613 250.478 34.032L242.094 37.68V39.92L250.478 44.72C250.798 44.8693 250.958 45.2107 250.958 45.744V59.664C250.958 59.8347 250.926 60.016 250.862 60.208C250.819 60.3787 250.712 60.5173 250.542 60.624L240.494 65.616C240.366 65.7013 240.206 65.7867 240.014 65.872C239.843 65.9573 239.672 66 239.502 66H229.806ZM254.964 66C254.431 66 254.164 65.7333 254.164 65.2V35.536C254.164 35.1947 254.271 34.8747 254.484 34.576L262.036 23.824C262.271 23.504 262.612 23.344 263.06 23.344H274.388C274.857 23.344 275.199 23.504 275.412 23.824L283.028 34.576C283.241 34.8747 283.348 35.1947 283.348 35.536V65.2C283.348 65.7333 283.081 66 282.548 66H271.22C270.687 66 270.42 65.7333 270.42 65.2V52.976H267.092V65.2C267.092 65.7333 266.825 66 266.292 66H254.964ZM268.756 42.448C269.823 42.448 270.644 42.1493 271.22 41.552C271.817 40.9333 272.116 40.0587 272.116 38.928C272.116 37.8187 271.817 36.9547 271.22 36.336C270.644 35.7173 269.823 35.408 268.756 35.408C267.689 35.408 266.857 35.7173 266.26 36.336C265.684 36.9547 265.396 37.8187 265.396 38.928C265.396 40.0587 265.684 40.9333 266.26 41.552C266.857 42.1493 267.689 42.448 268.756 42.448ZM294.888 66C294.397 66 293.971 65.8187 293.608 65.456L287.208 59.056C286.867 58.7147 286.696 58.288 286.696 57.776V24.144C286.696 23.6107 286.963 23.344 287.496 23.344H298.824C299.357 23.344 299.624 23.6107 299.624 24.144V51.504H302.952V24.144C302.952 23.6107 303.219 23.344 303.752 23.344H315.08C315.613 23.344 315.88 23.6107 315.88 24.144V57.776C315.88 58.288 315.709 58.7147 315.368 59.056L308.968 65.456C308.605 65.8187 308.179 66 307.688 66H294.888ZM320.059 66C319.525 66 319.259 65.7333 319.259 65.2V24.144C319.259 23.6107 319.525 23.344 320.059 23.344H342.331C342.864 23.344 343.131 23.6107 343.131 24.144V34.768C343.131 35.3013 342.864 35.568 342.331 35.568H332.187V39.088H342.171C342.704 39.088 342.971 39.3547 342.971 39.888V49.456C342.971 49.9893 342.704 50.256 342.171 50.256H332.187V53.776H342.331C342.864 53.776 343.131 54.0427 343.131 54.576V65.2C343.131 65.7333 342.864 66 342.331 66H320.059Z"
+                            fill="#FFC0CB" />
+                    </svg>
+
+                </span></li>
+            </div>
+            <ul class="hList">
+                <li>
+                    <a href="#click" class="menu">
+                        <h2 class="menu-title">REPORTS</h2>
+                        <ul class="menu-dropdown">
+                            <li>PREVIOUS</li>
+                            <li>SOLVED</li>
+                            <li>PENDING</li>
+                            <li>JOIN US</li>
+                            <li></li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="#click" class="menu">
+                        <h2 class="menu-title menu-title_2nd">NEWS</h2>
+                        <ul class="menu-dropdown">
+                            <li>WORLDWIDE</li>
+                            <li>NATIONAL</li>
+                            <li>NEARBY LOCATION</li>
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="#click" class="menu">
+                        <h2 class="menu-title menu-title_3rd">ABOUT US</h2>
+                        <ul class="menu-dropdown">
+                            <li>PURPOSE</li>
+                            <li>AIM</li>
+                            <li>REEARCH</li>
+                            <li>FUTURE</li>
+                            <li>AFFILIATIONS</li>
+                            <li>TEAM</li>
+                            <li>DONATE</li>
+
+                        </ul>
+                    </a>
+                </li>
+                <li>
+                    <a href="#click" class="menu">
+                        <h2 class="menu-title menu-title_4th">CONTACTS</h2>
+                        <ul class="menu-dropdown">
+                            <li>AMBULANCE</li>
+                            <li>POLICE</li>
+                            <li>FIRE BRIGADE</li>
+                            <li>RESCUE SOURCE</li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main">
+            <div class="card1">
+                <h1>STAY ALERTED</h1>
+                <p class="rpt"><label for="city">Enter City</label><input type="text" id="city"
+                        placeholder="select city"></p>
+                <p class="dis"><label for="disaster">Select disaster</label><input type="text" placeholder="Disaster">
+                </p>
+                <p class="kno"><label for="info">Information</label><input type="text" placeholder="information"></p>
+                <p><button class="sub">Submit</button></p>
+                <div class="box">
+                    <span style="--i:1">
+                        <img src="C:\Users\YashY\Downloads\1.jpg">
+                    </span>
+                    <span style="--i:2">
+                        <img src="C:\Users\YashY\Downloads\2.jpg">
+                    </span>
+                    <span style="--i:3">
+                        <img src="C:\Users\YashY\Downloads\3.jpg">
+                    </span>
+                    <span style="--i:4">
+                        <img src="C:\Users\YashY\Downloads\4.jpg">
+                    </span>
+                    <span style="--i:5">
+                        <img src="C:\Users\YashY\Downloads\5.jpg">
+                    </span>
+                    <span style="--i:6">
+                        <img src="C:\Users\YashY\Downloads\6.jpg">
+                    </span>
+                    <span style="--i:7">
+                        <img src="C:\Users\YashY\Downloads\7.jpg">
+                    </span>
+                    <span style="--i:8">
+                        <img src="C:\Users\YashY\Downloads\8.jpg">
+                    </span>
+
+                </div>
+            </div>
+            <div class="card2">
+                <h1>STAY STAFE WITH QUICKSAVE</h1>
+                <p class="desc">QuickSave swiftly handles emergencies by sending alerts to the nearest police station as
+                    soon as a report is made. Users receive an instant notification confirming their report is
+                    registered and being addressed. This ensures quick response from authorities and keeps users
+                    informed, providing peace of mind during critical situations.</p>
+                <h1>EMERGENCY RESPONSE SYSTEM</h1>
+                <button class="report-btn" onclick="openReportForm()">Report</button>
+                <div id="reportForm" class="report-form">
+                    <h2>Report an Emergency</h2>
+                    <form id="emergencyForm">
+                        <label for="location">Your Location:</label>
+                        <input type="text" id="location" name="location" required>
+
+                        <label for="landmark">Nearby Landmark:</label>
+                        <input type="text" id="landmark" name="landmark" required>
+
+                        <button type="submit">Submit Report</button>
+                    </form>
+                    
+                        </div>
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <button class="stat-button">500+</button><span class="statname">Reports</span>
+                            </div>
+                            <div class="stat-item">
+                                <button class="stat-button">380+</button><span class="statname">Rescues and Alerts</span>
+                            </div>
+                            <div class="stat-item">
+                                <button class="stat-button">250+</button><span class="statname">Total Affiliation</span>
+                    </div>
+                    <footer class="site-footer">
+                        <div class="footer-content">
+                            <div class="footer-section">
+                                <h3>Contact Us</h3>
+                                <a href="mailto:example@gmail.com" class="footer-link">Add Gmail</a>
+                            </div>
+                            <div class="footer-section">
+                                <h3>Account</h3>
+                                <a href="#login" class="footer-link">Login</a>
+                            </div>
+                            <div class="footer-section">
+                                <h3>Team</h3>
+                                <a href="#team" class="footer-link">Team Members</a>
+                            </div>
+                            <div class="footer-section">
+                                <h3>Support</h3>
+                                <a href="#help" class="footer-link">Help</a>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
+                        </div>
+                    </footer>
+
+
+                </div>
+
+
+            </div>
+            
+        </div>
+        <!-- Footer Section -->
+
+
+
+    </header>
+    <script>function openReportForm() {
+            const reportForm = document.getElementById('reportForm');
+            reportForm.style.display = 'block';
+        }
+
+        document.getElementById('emergencyForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const location = document.getElementById('location').value;
+            const landmark = document.getElementById('landmark').value;
+
+            // Here you would send the data to your server
+            console.log('Report submitted:', { location, landmark });
+
+            // Simulate sending alerts
+            alert('Your report has been submitted and an alert has been sent to the nearest police station.');
+
+            // Clear the form and hide it
+            document.getElementById('emergencyForm').reset();
+            document.getElementById('reportForm').style.display = 'none';
+        });</script>
+    <script>
+        // Simulated function to fetch disaster data (replace with actual API call)
+        async function fetchDisasterData(city, disaster) {
+            // Simulate an API response
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve([
+                        { location: city, disaster: disaster, timestamp: Date.now() - 3600000 }, // 1 hour ago
+                        { location: city, disaster: disaster, timestamp: Date.now() - 86400000 }, // 1 day ago
+                    ]);
+                }, 500);
+            });
+        }
+
+        // Function to handle the form submission
+        async function handleFormSubmission() {
+            const city = document.getElementById('city').value;
+            const disaster = document.querySelector('input[placeholder="Disaster"]').value;
+            const info = document.querySelector('input[placeholder="information"]').value;
+
+            if (!city || !disaster || !info) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            try {
+                const disasterData = await fetchDisasterData(city, disaster);
+                const recentThreshold = 3600000; // 1 hour in milliseconds
+                const recentActivities = disasterData.filter(activity => Date.now() - activity.timestamp < recentThreshold);
+
+                if (recentActivities.length > 0) {
+                    alert('Recent disaster activity detected!\nDetails:\n' + recentActivities.map(activity =>
+                        Location: ${activity.location}\nDisaster: ${activity.disaster}\nTime: ${new Date(activity.timestamp).toLocaleString()}
+                    ).join('\n\n'));
+                } else {
+                    alert('No recent disaster activity found.');
+                }
+
+            } catch (error) {
+                console.error('Error fetching disaster data:', error);
+                alert('An error occurred while fetching disaster data.');
+            }
+        }
+
+        // Add event listener to the submit button
+        document.querySelector('.sub').addEventListener('click', handleFormSubmission);
+    </script>
+
+</body>
+
+</html>
